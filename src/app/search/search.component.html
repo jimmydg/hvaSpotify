@@ -1,0 +1,25 @@
+<div>
+Gebruiksaanwijzing:
+<ul>
+  <li> Zoek de artiest op</li>
+  <li> Klik op het plusje om de artiest toe te voegen aan uw favorieten</li>
+  <li> Verwijder de artiest door op het kruisje te klikken</li>
+</ul>
+</div>
+
+<input type="search" [(ngModel)]="artistName"/>
+<button (click)="searchArtist(artistName)">Submit</button>
+
+<div>
+  <h3>Zoekresultaten</h3>
+  <ul>
+    <li *ngFor="let artist of resultList;">{{artist.name}} <button (click)="addFavourite(artist.name)">+</button></li>
+  </ul>
+</div>
+
+<div>
+  <h3>Favorieten</h3>
+  <ul>
+    <li *ngFor="let favourite of favourites; let index = index;">{{favourite}} <button (click)="removeFavourite(index)">x</button> </li>
+  </ul>
+</div>
